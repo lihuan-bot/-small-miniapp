@@ -1,0 +1,35 @@
+<view class="main">
+  <MyTitle> </MyTitle>
+  <!-- 首页导航 -->
+  <view class="nav-warp">
+    <scroll-view class="nav" scroll-x="{{true}}">
+        <view class="nav-item {{index === currentIndex?'active':''}}" bindtap="activeNav" 
+        data-index="{{index}}"  wx:for="{{navList}}" wx:key="index">
+          {{item.text}}
+        </view>
+    </scroll-view>
+  </view>
+<!-- 轮播图 -->
+<view class="slider">
+  <swiper autoplay indicator-dots circular interval="2000">
+    <swiper-item wx:for="{{swiperList}}" wx:key="index">
+      <navigator>
+        <image mode="widthFix" src="{{item.imgSrc}}"></image>
+        
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- 视频 -->
+<view class="video-wrap">
+  <navigator class="video-item" wx:for="{{videosList}}" wx:key="index">
+  <!-- 图片容器 -->
+  <view class="video-img">
+  <!-- 图片 -->
+  <image src="{{item.imgSrc}}" />
+  </view>
+  <!-- 标题 -->
+  <view class="video-title">{{item.desc}}</view>
+  </navigator>
+</view>
+</view>

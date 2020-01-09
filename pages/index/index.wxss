@@ -1,0 +1,30 @@
+page{
+  color: #666;
+}
+.nav-warp{
+
+}
+.nav{
+  white-space: nowrap;
+  padding: 5rpx 0;
+}
+.nav-item{
+  padding: 20rpx 45rpx;
+  font-size: 30rpx;
+  display: inline-block;
+}
+.nav-item.active{
+  border-bottom:5rpx solid #de688b;
+}
+.slider{}
+.slider swiper{
+  height: 220rpx;
+}
+.slider navigator{
+  width:100%;
+  height: 100%;
+}
+.slider image{
+  width: 100%;
+  height: 100%;
+}
