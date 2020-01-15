@@ -47,15 +47,16 @@ Page({
       }
     })
   },
+  /**获取视频数据 */
   getVideosList(){
     wx.request({
-      url: "https://easy-mock.com/mock/5c1dfd98e8bfa547414a5278/bili/videosList ",
+      url:"https://www.bilibili.com/index/ding.json ",
       success: (res)=>{
-        console.log(res);
+        console.log(res.data);
         
-        if(res.data.code === 0){
+        if(res.statusCode === 200){
           this.setData({
-            videosList:res.data.data.videosList
+            videosList: res.data.movie
           })
           
         }
@@ -69,9 +70,7 @@ Page({
       this.getNavList()
       this.getSwiperList()
       this.getVideosList()
-     
-  
-
+    
   },
 
   /**

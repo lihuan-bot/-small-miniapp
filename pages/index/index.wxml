@@ -3,33 +3,49 @@
   <!-- 首页导航 -->
   <view class="nav-warp">
     <scroll-view class="nav" scroll-x="{{true}}">
-        <view class="nav-item {{index === currentIndex?'active':''}}" bindtap="activeNav" 
-        data-index="{{index}}"  wx:for="{{navList}}" wx:key="index">
-          {{item.text}}
-        </view>
+      <view class="nav-item {{index === currentIndex?'active':''}}" bindtap="activeNav" data-index="{{index}}" wx:for="{{navList}}" wx:key="index">
+        {{item.text}}
+      </view>
     </scroll-view>
   </view>
-<!-- 轮播图 -->
-<view class="slider">
-  <swiper autoplay indicator-dots circular interval="2000">
-    <swiper-item wx:for="{{swiperList}}" wx:key="index">
-      <navigator>
-        <image mode="widthFix" src="{{item.imgSrc}}"></image>
-        
-      </navigator>
-    </swiper-item>
-  </swiper>
-</view>
-<!-- 视频 -->
-<view class="video-wrap">
-  <navigator class="video-item" wx:for="{{videosList}}" wx:key="index">
-  <!-- 图片容器 -->
-  <view class="video-img">
-  <!-- 图片 -->
-  <image src="{{item.imgSrc}}" />
+  <!-- 轮播图 -->
+  <view class="slider">
+    <swiper autoplay indicator-dots circular interval="2000">
+      <swiper-item wx:for="{{swiperList}}" wx:key="index">
+        <navigator>
+          <image mode="widthFix" src="{{item.imgSrc}}"></image>
+
+        </navigator>
+      </swiper-item>
+    </swiper>
   </view>
-  <!-- 标题 -->
-  <view class="video-title">{{item.desc}}</view>
-  </navigator>
-</view>
+  <!-- 视频 -->
+  <view class="video-wrap">
+    <navigator url="../detail/detail?id={{item.aid}}" class="video-item" wx:for="{{videosList}}" wx:key="index" hover-class="navigator-hover" open-type="navigate">
+      <!-- 图片容器 -->
+      <view class="video-img">
+        <!-- 图片 -->
+        <image mode="widthFix" src="{{item.pic}}" />
+        <!-- 播放量 -->
+        <view class="video-info">
+          <!-- 播放量 -->
+          <view class="play-count-wrap">
+            <!-- 图标 -->
+            <text class="fa fa-play-circle-o"></text>
+            <!-- 数值 -->
+            <text class="play-count">{{item.attribute}}</text>
+          </view>
+        <!-- 评论量 -->
+        <view class="comment-count-row">
+        <!-- 图标 -->
+        <text class="fa fa-commenting-o"></text>
+        <!-- 数值 -->
+        <text class="comment-count">{{item.duration}}</text>
+        </view>
+        </view>
+      </view>
+      <!-- 标题 -->
+      <view class="video-title">{{item.title}}</view>
+    </navigator>
+  </view>
 </view>
