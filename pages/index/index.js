@@ -52,8 +52,6 @@ Page({
     wx.request({
       url:"https://www.bilibili.com/index/ding.json ",
       success: (res)=>{
-        console.log(res.data);
-        
         if(res.statusCode === 200){
           this.setData({
             videosList: res.data.movie

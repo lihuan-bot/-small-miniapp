@@ -12,16 +12,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let videoId = options.id;
-    this.getCurrentVideo(videoId)
+    // let videoId = options.id;
+    this.getCurrentVideo()
   },
 getCurrentVideo(videoId){
   wx.request({
-    url: 'https://mockapi.eolinker.com/7b7NMB9c75d613bc39c8f16e4e03a3d4a8f951750079dc5/videoDetail?id=' + videoId,
+    url: 'http://47.103.221.217:8082/getMvPlay?vid=f0033fvk1hi',
     success: (res) => {
       console.log(res);
       this.setData({
-        videoInfo:res.data
+        videoInfo: res.data.response.getMVUrl.data.f0033fvk1hi.mp4[3]
       })
     }
     
